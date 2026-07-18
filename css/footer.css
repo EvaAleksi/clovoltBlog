@@ -90,7 +90,7 @@
         grid-row: 2;
         justify-self: center;
         flex-wrap: wrap;
-        gap: 16px, 24px;
+        gap: 16px 24px;
     }
 
     .footer-copyright {
