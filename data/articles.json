@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "category": "Trends",
+        "title": "The Fashion Trends Defining This Season",
+        "excerpt": "Discover the colors, silhouettes and details shaping the latest fashion season.",
+        "date": "July 14, 2026",
+        "readingTime": "5 min read",
+        "image": "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 2,
+        "category": "Style Guide",
+        "title": "How to Make Simple Outfits Look Elevated",
+        "excerpt": "Small styling changes can transform everyday basics into polished and confident looks.",
+        "date": "July 11, 2026",
+        "readingTime": "4 min read",
+        "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 3,
+        "category": "Inspiration",
+        "title": "A Fresh Approach to Personal Style",
+        "excerpt": "Build a wardrobe that reflects your personality instead of following every trend.",
+        "date": "July 8, 2026",
+        "readingTime": "6 min read",
+        "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 4,
+        "category": "Wardrobe Essentials",
+        "title": "The Everyday Pieces Worth Keeping",
+        "excerpt": "Explore versatile wardrobe essentials that can be styled in different ways throughout the year.",
+        "date": "July 5, 2026",
+        "readingTime": "5 min read",
+        "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 5,
+        "category": "Street Style",
+        "title": "Street Style Ideas for Busy Days",
+        "excerpt": "Comfortable and creative outfit ideas designed for days when you are always on the move.",
+        "date": "July 2, 2026",
+        "readingTime": "4 min read",
+        "image": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 6,
+        "category": "Style Guide",
+        "title": "How to Combine Colors with Confidence",
+        "excerpt": "Learn simple ways to create balanced color combinations without making an outfit feel overwhelming.",
+        "date": "June 29, 2026",
+        "readingTime": "6 min read",
+        "image": "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 7,
+        "category": "Accessories",
+        "title": "Accessories That Complete an Outfit",
+        "excerpt": "See how bags, jewelry and other small details can give a simple outfit more personality.",
+        "date": "June 26, 2026",
+        "readingTime": "3 min read",
+        "image": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 8,
+        "category": "Inspiration",
+        "title": "Finding Inspiration Beyond Social Media",
+        "excerpt": "Discover new sources of fashion inspiration in art, architecture, films and everyday surroundings.",
+        "date": "June 23, 2026",
+        "readingTime": "5 min read",
+        "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 9,
+        "category": "Wardrobe Essentials",
+        "title": "Building a More Versatile Wardrobe",
+        "excerpt": "Choose pieces that work well together and help you create more outfits with fewer decisions.",
+        "date": "June 20, 2026",
+        "readingTime": "7 min read",
+        "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+        "id": 10,
+        "category": "Trends",
+        "title": "Modern Minimalism with a Personal Touch",
+        "excerpt": "Explore how clean shapes and neutral colors can still create an expressive and memorable look.",
+        "date": "June 17, 2026",
+        "readingTime": "5 min read",
+        "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
+    }
+]
