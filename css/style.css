@@ -24,6 +24,12 @@ body {
     color: var(--charcoal-black);
     font-family: var(--body-font);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 h1,
