@@ -39,14 +39,159 @@
 
         <main>
             <section
-                class="hero"
+                class="hero-carousel"
+                id="hero-carousel"
                 aria-label="Featured fashion stories">
 
-                <div class="hero-slides">
-                    <article class="hero-slide active">
-                        <div class="hero-content"></div>
-                        <div class="hero-image"></div>
+                <div class="carousel-slides">
+                    <article 
+                        class="carousel-slide active"
+                        aria-hidden="false">
+
+                        <div class="slide-content">
+                            <span class="slide-number">1 / 3</span>
+
+                            <p class="slide-category">TREND REPORT</p>
+
+                            <h1>The New Energy of Everyday Style</h1>
+
+                            <p class="slide-description">
+                                Discover fresh fashion ideas designed to bring
+                                confidence, creativity and energy into everyday looks.
+                            </p>
+
+                            <a class="slide-link" href="explore.html">
+                                Explore the Blog
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div class="slide-image">
+                            <img
+                                src="images/hero/everyday-style.jpg"
+                                alt="Everyday fashion style"
+                                fetchpriority="high"
+                            >
+                        </div>
                     </article>
+
+                    <article
+                        class="carousel-slide"
+                        aria-hidden="true">
+
+                        <div class="slide-content">
+                            <span class="slide-number">2 / 3</span>
+
+                            <p class="slide-category">STYLE GUIDE</p>
+
+                            <h2>Build a Wardrobe That Feels Like You</h2>
+
+                            <p class="slide-description">
+                                Create versatile outfits by combining timeless
+                                pieces with details that express your personality.
+                            </p>
+
+                            <a class="slide-link" href="explore.html">
+                                Read the Guide
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div class="slide-image">
+                            <img
+                                src="images/hero/personal-wardrobe.jpg"
+                                alt="A curated modern wardrobe"
+                            >
+                        </div>
+                    </article>
+
+                    <article
+                        class="carousel-slide"
+                        aria-hidden="true">
+
+                        <div class="slide-content">
+                            <span class="slide-number">3 / 3</span>
+
+                            <p class="slide-category">SHOP THE LOOK</p>
+
+                            <h2>Modern Minimalism, Styled Your Way</h2>
+
+                            <p class="slide-description">
+                                Explore a complete curated outfit and discover
+                                the individual pieces behind the look.
+                            </p>
+
+                            <a class="slide-link" href="shop-the-look.html">
+                                Shop the Look
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div class="slide-image">
+                            <img
+                                src="images/hero/modern-minimalist.jpg"
+                                alt="A modern minimalist outfit"
+                            >
+                        </div>
+                    </article>
+                </div>
+
+                <button
+                    class="carousel-arrow previous-slide"
+                    type="button"
+                    aria-label="Previous slide">
+
+                    <i
+                        class="fa-solid fa-caret-left"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+
+                <button
+                    class="carousel-arrow next-slide"
+                    type="button"
+                    aria-label="Next slide">
+
+                    <i
+                        class="fa-solid fa-caret-right"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+
+                <div
+                    class="carousel-indicators"
+                    aria-label="Choose a slide">
+
+                    <button
+                        class="carousel-indicator active"
+                        type="button"
+                        data-slide-index="0"
+                        aria-label="Show slide 1"
+                        aria-current="true"
+                    ></button>
+
+                    <button
+                        class="carousel-indicator"
+                        type="button"
+                        data-slide-index="1"
+                        aria-label="Show slide 2"
+                    ></button>
+
+                    <button
+                        class="carousel-indicator"
+                        type="button"
+                        data-slide-index="2"
+                        aria-label="Show slide 3"
+                    ></button>
                 </div>
             </section>
         </main>
