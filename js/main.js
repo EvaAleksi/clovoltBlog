@@ -180,13 +180,28 @@ fetch("data/articles.json")
 
 
         setupArticleFavorites(articles);
+
+
+        const articleOfDayIndex = (startingIndex + 3) % articles.length;
+
+        const articleOfDay = articles[articleOfDayIndex];
+
+        renderArticleOfDay(articleOfDay);
     })
     .catch((error) => {
         const articlesContainer = document.getElementById("latest-articles");
 
+        const articleOfDayContainer = document.getElementById("article-of-day");
+        
         articlesContainer.innerHTML = `
             <p class="error-message">
                 The articles could not be loaded. Please try again.
+            </p>
+        `;
+
+        articleOfDayContainer.innerHTML = `
+            <p class="error-message">
+                The article of the day could not be loaded.
             </p>
         `;
 
@@ -273,4 +288,51 @@ function updateFavoriteButton(button, isSaved) {
             "Add article to favorites"
         );
     }
+}
+
+
+
+function renderArticleOfDay(article) {
+    const articleOfDayContainer = document.getElementById("article-of-day");
+
+    articleOfDayContainer.innerHTML = `
+        <div class="article-of-day-image">
+            <img
+                src="${article.image}"
+                alt="${article.title}"
+            >
+
+            <span class="featured-badge">Featured</span>
+        </div>
+
+        <div class="article-of-day-content">
+            <div class="article-day-heading">
+                <span></span>
+                <p>ARTICLE OF THE DAY</p>
+            </div>
+
+            <p class="article-day-category">${article.category}</p>
+
+            <h2>${article.title}</h2>
+
+            <div class="article-day-meta">
+                <span>${article.date}</span>
+                <span>${article.readingTime}</span>
+            </div>
+
+            <p class="article-day-description">${article.excerpt}</p>
+
+            <a
+                class="article-day-button"
+                href="article.html?id=${article.id}">
+
+                Read the Full Story
+
+                <i
+                    class="fa-solid fa-arrow-right"
+                    aria-hidden="true"
+                ></i>
+            </a>
+        </div>
+    `;
 }

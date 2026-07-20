@@ -497,6 +497,132 @@ button {
     transform: translateX(0);
 }
 
+.article-of-day {
+    width: min(1400px, 90%);
+    min-height: 650px;
+    margin: 0 auto 110px;
+    display: grid;
+    grid-template-columns: 52% 48%;
+    background-color: var(--soft-beige);
+}
+
+.article-of-day-image {
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+    background-color: var(--charcoal-black);
+}
+
+.article-of-day-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s ease;
+}
+
+.article-of-day:hover .article-of-day-image img {
+    transform: scale(1.03);
+}
+
+.featured-badge {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 10px 14px;
+    color: var(--muted-lavender);
+    background-color: var(--electric-lime);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.article-of-day-content {
+    padding: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.article-day-heading {
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.article-day-heading span {
+    width: 45px;
+    height: 3px;
+    background-color: var(--muted-lavender);
+}
+
+.article-day-heading p {
+    margin: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.article-day-category {
+    margin-bottom: 12px;
+    color: var(--muted-lavender);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.article-of-day-content h2 {
+    margin-bottom: 22px;
+    font-size: clamp(45px, 5vw, 72px);
+    font-weight: 600;
+    line-height: 0.95;
+}
+
+.article-day-meta {
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    color: var(--charcoal-black);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.article-day-description {
+    max-width: 560px;
+    margin-bottom: 32px;
+    color: var(--charcoal-black);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.article-day-button {
+    padding: 15px 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--electric-lime);
+    background-color: var(--muted-lavender);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 
+        gap 0.3s ease,
+        color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.article-day-button:hover {
+    gap: 20px;
+    color: var(--muted-lavender);
+    background-color: var(--electric-lime);
+}
+
 @media (max-width: 900px) {
     .hero-carousel {
         width: calc(100% - 32px);
@@ -565,6 +691,22 @@ button {
 
     .category-card-wide {
         grid-column: 1 / 3;
+    }
+
+    .article-of-day {
+        grid-template-columns: 1fr;
+    }
+
+    .article-of-day-image {
+        min-height: 550px;
+    }
+
+    .article-of-day-content {
+        padding: 55px;
+    }
+
+    .article-of-day-content h2 {
+        font-size: 58px;
     }
 }
 
@@ -685,5 +827,49 @@ button {
         right: 20px;
         bottom: 20px;
         transform: translateX(0);
+    }
+
+    .article-of-day {
+        width: calc(100% - 32px);
+        margin-bottom: 80px;
+    }
+
+    .article-of-day-image {
+        min-height: 390px;
+    }
+
+    .article-of-day-content {
+        padding: 38px 24px;
+    }
+
+    .article-day-heading {
+        margin-bottom: 25px;
+    }
+
+    .article-of-day-content h2 {
+        margin-bottom: 18px;
+        font-size: 42px;
+        line-height: 1;
+    }
+
+    .article-day-meta {
+        margin-bottom: 20px;
+        gap: 8px 16px;
+    }
+
+    .article-day-description {
+        margin-bottom: 27px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .article-day-button {
+        padding: 14px 18px;
+        font-size: 11px;
+    }
+
+    .featured-badge {
+        top: 18px;
+        left: 18px;
     }
 }
