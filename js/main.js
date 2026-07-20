@@ -140,7 +140,7 @@ fetch("data/articles.json")
                         class="article-favorite"
                         type="button"
                         data-article-id="${article.id}"
-                        aria-label="Add ${article.title} to favorites">
+                        aria-label="Add article to favorites">
 
                         <i
                             class="fa-regular fa-heart"
@@ -192,3 +192,85 @@ fetch("data/articles.json")
 
         console.error(error);
     });
+
+
+
+function setupArticleFavorites(articles) {
+    const favoriteButtons = document.querySelectorAll(".article-favorite");
+
+    let favoriteArticles = JSON.parse(
+        localStorage.getItem("favoriteArticles")
+    ) || [];
+
+    favoriteButtons.forEach((button) => {
+        const articleId = Number(button.dataset.articleId);
+
+        const isAlreadySaved = favoriteArticles.some(
+            (favoriteArticle) => {
+                return favoriteArticle.id === articleId;
+            }
+        );
+
+        updateFavoriteButton(button, isAlreadySaved);
+
+        button.addEventListener("click", () => {
+            const selectedArticle = articles.find(
+                (article) => {
+                    return article.id === articleId;
+                }
+            );
+
+            const isSaved = favoriteArticles.some(
+                (favoriteArticle) => {
+                    return favoriteArticle.id === articleId;
+                }
+            );
+
+            if (isSaved) {
+                favoriteArticles = favoriteArticles.filter(
+                    (favoriteArticle) => {
+                        return favoriteArticle.id !== articleId;
+                    }
+                );
+
+                updateFavoriteButton(button, false);
+            } else {
+                favoriteArticles.push(selectedArticle);
+
+                updateFavoriteButton(button, true);
+            }
+
+            localStorage.setItem(
+                "favoriteArticles",
+                JSON.stringify(favoriteArticles)
+            );
+        });
+    });
+}
+
+
+function updateFavoriteButton(button, isSaved) {
+    const heartIcon = button.querySelector("i");
+
+    if (isSaved) {
+        button.classList.add("saved");
+
+        heartIcon.classList.remove("fa-regular");
+        heartIcon.classList.add("fa-solid");
+
+        button.setAttribute(
+            "aria-label",
+            "Remove article from favorites"
+        );
+    } else {
+        button.classList.remove("saved");
+
+        heartIcon.classList.remove("fa-solid");
+        heartIcon.classList.add("fa-regular");
+
+        button.setAttribute(
+            "aria-label",
+            "Add article to favorites"
+        );
+    }
+}

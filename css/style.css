@@ -325,6 +325,11 @@ button {
     background-color: var(--electric-lime);
 }
 
+.article-favorite.saved {
+    color: var(--muted-lavender);
+    background-color: var(--electric-lime);
+}
+
 .article-content {
     padding: 25px 5px;
 }
