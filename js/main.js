@@ -192,7 +192,7 @@ fetch("data/articles.json")
         const articlesContainer = document.getElementById("latest-articles");
 
         const articleOfDayContainer = document.getElementById("article-of-day");
-        
+
         articlesContainer.innerHTML = `
             <p class="error-message">
                 The articles could not be loaded. Please try again.
@@ -333,6 +333,119 @@ function renderArticleOfDay(article) {
                     aria-hidden="true"
                 ></i>
             </a>
+        </div>
+    `;
+}
+
+
+
+fetch("data/looks.json")
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Looks could not be loaded.");
+        }
+
+        return response.json();
+    })
+    .then((looks) => {
+        if (!Array.isArray(looks) || looks.length === 0) {
+            throw new Error("No looks were found.");
+        }
+
+        const today = new Date();
+
+        const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
+
+        const dailyLookIndex = dayNumber % looks.length;
+
+        const dailyLook = looks[dailyLookIndex];
+
+        renderDailyLook(dailyLook);
+    })
+    .catch((error) => {
+        const featuredLookContainer = document.getElementById("featured-look");
+
+        featuredLookContainer.innerHTML = `
+            <p class="error-message">
+                Today's look could not be loaded.
+            </p>
+        `;
+
+        console.error(error);
+    });
+
+
+
+function renderDailyLook(look) {
+    const featuredLookContainer = document.getElementById("featured-look");
+
+    const hotspotsHTML = look.products.map((product) => {
+        return `
+            <span
+                class="look-hotspot"
+                style="top: ${product.hotspotTop}; left: ${product.hotspotLeft};"
+                aria-label="${product.name}">
+
+                ${product.number}
+            </span>
+        `;
+    })
+    .join("");
+
+    const productsHTML = look.products.map((product) => {
+        return `
+            <li class="look-product">
+                <span class="product-number">
+                    ${product.number}
+                </span>
+
+                <div class="product-info">
+                    <p class="product-category">
+                        ${product.category}
+                    </p>
+
+                    <h4 class="product-name">
+                        ${
+                            product.productUrl
+                                ? `
+                                    <a
+                                        href="${product.productUrl}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="product-link">
+
+                                        ${product.name}
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </a>
+                                `
+                                : product.name
+                        }
+                    </h4>
+
+                    <p class="product-detail">
+                        ${product.detail}
+                    </p>
+                </div>
+            </li>
+        `;
+    })
+    .join("");
+
+    featuredLookContainer.innerHTML = `
+        <div class="featured-look-image">
+            <img src="${look.image}" alt="${look.name}">
+
+            ${hotspotsHTML}
+        </div>
+
+        <div class="look-details">
+            <p class="look-style">${look.style}</p>
+
+            <h3 class="look-name">${look.name}</h3>
+
+            <p class="look-description">${look.description}</p>
+
+            <ul class="look-products">${productsHTML}</ul>
         </div>
     `;
 }
