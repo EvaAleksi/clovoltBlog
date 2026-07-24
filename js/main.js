@@ -259,7 +259,6 @@ function setupArticleFavorites(articles) {
         console.error("Favorites could not be read from localStorage:", error);
 
         favoriteArticles = [];
-        localStorage.removeItem("favoriteArticles");
     }
 
     favoriteButtons.forEach((button) => {
@@ -317,6 +316,8 @@ function setupArticleFavorites(articles) {
 
 function updateFavoriteButton(button, isSaved) {
     const heartIcon = button.querySelector("i");
+
+    button.setAttribute("aria-pressed", String(isSaved));
 
     if (isSaved) {
         button.classList.add("saved");

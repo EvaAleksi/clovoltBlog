@@ -140,19 +140,31 @@
 }
 
 .carousel-indicator {
-    width: 32px;
-    height: 4px;
-    background-color: var(--charcoal-black);
-    opacity: 0.35;
-    transition: 
-        background-color 0.3s ease,
-        opacity 0.3s ease;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
-.carousel-indicator.active {
-    background-color: var(--electric-lime);
-    opacity: 1;
+.carousel-indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 4px;
+    transform: translate(-50%, -50%);
+    background-color: var(--muted-lavender);
+    transition: background-color 0.2s ease;
 }
+
+.carousel-indicator.active::before {
+    background-color: var(--electric-lime);
+}
+
 
 .carousel-indicator:hover {
     opacity: 1;
@@ -648,7 +660,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.7ms ease;
+    transition: transform 0.7s ease;
 }
 
 .featured-look:hover > .featured-look-image > img {
@@ -1056,8 +1068,8 @@
 
 @media (max-width: 600px) {
     .hero-carousel {
-        width: 100%;
-        margin: 10px 0;
+        width: calc(100% - 32px);
+        margin: 10px auto;
     }
 
     .slide-image {
