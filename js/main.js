@@ -1,14 +1,10 @@
 const heroCarousel = document.getElementById("hero-carousel");
-
 const carouselSlides = document.querySelectorAll(".carousel-slide");
-
 const previousSlideButton = document.querySelector(".previous-slide");
 const nextSlideButton = document.querySelector(".next-slide");
-
 const carouselIndicators = document.querySelectorAll(".carousel-indicator");
 
 let currentSlideIndex = 0;
-
 
 function showSlide(slideIndex) {
     carouselSlides.forEach((slide, index) => {
@@ -20,6 +16,8 @@ function showSlide(slideIndex) {
             "aria-hidden",
             String(!isActive)
         );
+
+        slide.inert = !isActive;
     });
 
     carouselIndicators.forEach((indicator, index) => {
@@ -63,6 +61,10 @@ carouselIndicators.forEach((indicator) => {
 
 let automaticSlideInterval;
 
+const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches;
+
 
 function startAutomaticSliding() {
     clearInterval(automaticSlideInterval);
@@ -71,7 +73,7 @@ function startAutomaticSliding() {
         const nextSlideIndex = (currentSlideIndex + 1) % carouselSlides.length;
 
         showSlide(nextSlideIndex);
-    }, 3000);
+    }, 5000);
 }
 
 
@@ -79,18 +81,58 @@ function stopAutomaticSliding() {
     clearInterval(automaticSlideInterval);
 }
 
-heroCarousel.addEventListener(
-    "mouseenter",
-    stopAutomaticSliding
-);
 
-heroCarousel.addEventListener(
-    "mouseleave",
-    startAutomaticSliding
-);
+function restartAutomaticSlidingIfAllowed() {
+    const isMouseInside = heroCarousel.matches(":hover");
+    const containsKeyboardFocus = heroCarousel.contains(document.activeElement);
 
-startAutomaticSliding();
+    if (!isMouseInside && !containsKeyboardFocus) {
+        startAutomaticSliding();
+    }
+}
 
+
+if (!prefersReducedMotion) {
+    heroCarousel.addEventListener(
+        "mouseenter",
+        stopAutomaticSliding
+    );
+
+    heroCarousel.addEventListener(
+        "mouseleave",
+        restartAutomaticSlidingIfAllowed
+    );
+
+    heroCarousel.addEventListener(
+        "focusin",
+        stopAutomaticSliding
+    );
+
+    heroCarousel.addEventListener("focusout", (event) => {
+        const focusRemainInside = heroCarousel.contains(
+            event.relatedTarget
+        );
+
+        if (!focusRemainInside) {
+            restartAutomaticSlidingIfAllowed();
+        }
+    });
+
+    startAutomaticSliding();
+}
+
+
+
+
+const millisecondsPerDay = 1000 * 60 * 60 * 24;
+
+function getLocalDayNumber() {
+    const today = new Date();
+
+    return Math.floor(
+        today.getTime() / millisecondsPerDay
+    );
+}
 
 
 fetch("data/articles.json")
@@ -102,16 +144,16 @@ fetch("data/articles.json")
         return response.json();
     })
     .then((articles) => {
+        if (!Array.isArray(articles) || articles.length === 0) {
+            throw new Error("No articles were found.");
+        }
+
         const articlesContainer = document.getElementById("latest-articles");
 
         articlesContainer.innerHTML = "";
 
-        const today = new Date();
-
-        const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
-
+        const dayNumber = getLocalDayNumber();
         const startingIndex = (dayNumber * 3) % articles.length;
-
         const dailyArticles = [];
 
         for (let i = 0; i < 3; i++) {
@@ -127,14 +169,9 @@ fetch("data/articles.json")
 
             articleCard.innerHTML = `
                 <div class="article-image">
-                    <img
-                        src="${article.image}"
-                        alt="${article.title}"
-                    >
+                    <img src="${article.image}" alt="${article.title}">
 
-                    <span class="article-category">
-                        ${article.category}
-                    </span>
+                    <span class="article-category">${article.category}</span>
 
                     <button 
                         class="article-favorite"
@@ -157,16 +194,13 @@ fetch("data/articles.json")
 
                     <h3>${article.title}</h3>
 
-                    <p class="article-excerpt">
-                        ${article.excerpt}
-                    </p>
+                    <p class="article-excerpt">${article.excerpt}</p>
 
                     <a
                         class="read-article-link"
                         href="article.html?id=${article.id}">
 
                         Read Article
-                        
                         <i
                             class="fa-solid fa-arrow-right"
                             aria-hidden="true"
@@ -190,7 +224,6 @@ fetch("data/articles.json")
     })
     .catch((error) => {
         const articlesContainer = document.getElementById("latest-articles");
-
         const articleOfDayContainer = document.getElementById("article-of-day");
 
         articlesContainer.innerHTML = `
@@ -206,59 +239,77 @@ fetch("data/articles.json")
         `;
 
         console.error(error);
-    });
+    })
+;
 
 
 
 function setupArticleFavorites(articles) {
     const favoriteButtons = document.querySelectorAll(".article-favorite");
 
-    let favoriteArticles = JSON.parse(
-        localStorage.getItem("favoriteArticles")
-    ) || [];
+    let favoriteArticles = [];
+
+    try {
+        const storedFavorites = localStorage.getItem("favoriteArticles");
+
+        const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+        favoriteArticles = Array.isArray(parsedFavorites) ? parsedFavorites : [];
+    } catch (error) {
+        console.error("Favorites could not be read from localStorage:", error);
+
+        favoriteArticles = [];
+        localStorage.removeItem("favoriteArticles");
+    }
 
     favoriteButtons.forEach((button) => {
         const articleId = Number(button.dataset.articleId);
 
         const isAlreadySaved = favoriteArticles.some(
-            (favoriteArticle) => {
-                return favoriteArticle.id === articleId;
-            }
+            (favoriteArticle) => {return favoriteArticle.id === articleId;}
         );
 
         updateFavoriteButton(button, isAlreadySaved);
 
         button.addEventListener("click", () => {
             const selectedArticle = articles.find(
-                (article) => {
-                    return article.id === articleId;
-                }
+                (article) => {return article.id === articleId;}
             );
 
-            const isSaved = favoriteArticles.some(
-                (favoriteArticle) => {
-                    return favoriteArticle.id === articleId;
-                }
-            );
-
-            if (isSaved) {
-                favoriteArticles = favoriteArticles.filter(
-                    (favoriteArticle) => {
-                        return favoriteArticle.id !== articleId;
-                    }
-                );
-
-                updateFavoriteButton(button, false);
-            } else {
-                favoriteArticles.push(selectedArticle);
-
-                updateFavoriteButton(button, true);
+            if (!selectedArticle) {
+                console.error(`Article with ID ${articleId} was not found.`);
+                return;
             }
 
-            localStorage.setItem(
-                "favoriteArticles",
-                JSON.stringify(favoriteArticles)
+            const isSaved = favoriteArticles.some(
+                (favoriteArticle) => {return favoriteArticle.id === articleId;}
             );
+
+            let updatedFavoriteArticles;
+
+            if (isSaved) {
+                updatedFavoriteArticles = favoriteArticles.filter(
+                    (favoriteArticle) => {return favoriteArticle.id !== articleId;}
+                );
+            } else {
+                updatedFavoriteArticles = [
+                    ...favoriteArticles,
+                    selectedArticle
+                ];
+            }
+
+            try {
+                localStorage.setItem(
+                    "favoriteArticles",
+                    JSON.stringify(updatedFavoriteArticles)
+                );
+
+                favoriteArticles = updatedFavoriteArticles;
+
+                updateFavoriteButton(button, !isSaved);
+            } catch (error) {
+                console.error("Favorites could not be saved:", error);
+            }
         });
     });
 }
@@ -273,22 +324,17 @@ function updateFavoriteButton(button, isSaved) {
         heartIcon.classList.remove("fa-regular");
         heartIcon.classList.add("fa-solid");
 
-        button.setAttribute(
-            "aria-label",
-            "Remove article from favorites"
-        );
+        button.setAttribute("aria-label", "Remove article from favorites");
     } else {
         button.classList.remove("saved");
 
         heartIcon.classList.remove("fa-solid");
         heartIcon.classList.add("fa-regular");
 
-        button.setAttribute(
-            "aria-label",
-            "Add article to favorites"
-        );
+        button.setAttribute("aria-label", "Add article to favorites");
     }
 }
+
 
 
 
@@ -297,17 +343,13 @@ function renderArticleOfDay(article) {
 
     articleOfDayContainer.innerHTML = `
         <div class="article-of-day-image">
-            <img
-                src="${article.image}"
-                alt="${article.title}"
-            >
+            <img src="${article.image}" alt="${article.title}">
 
             <span class="featured-badge">Featured</span>
         </div>
 
         <div class="article-of-day-content">
             <div class="article-day-heading">
-                <span></span>
                 <p>ARTICLE OF THE DAY</p>
             </div>
 
@@ -327,7 +369,6 @@ function renderArticleOfDay(article) {
                 href="article.html?id=${article.id}">
 
                 Read the Full Story
-
                 <i
                     class="fa-solid fa-arrow-right"
                     aria-hidden="true"
@@ -336,6 +377,7 @@ function renderArticleOfDay(article) {
         </div>
     `;
 }
+
 
 
 
@@ -352,12 +394,8 @@ fetch("data/looks.json")
             throw new Error("No looks were found.");
         }
 
-        const today = new Date();
-
-        const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
-
+        const dayNumber = getLocalDayNumber();
         const dailyLookIndex = dayNumber % looks.length;
-
         const dailyLook = looks[dailyLookIndex];
 
         renderDailyLook(dailyLook);
@@ -372,7 +410,8 @@ fetch("data/looks.json")
         `;
 
         console.error(error);
-    });
+    })
+;
 
 
 
@@ -384,7 +423,7 @@ function renderDailyLook(look) {
             <span
                 class="look-hotspot"
                 style="top: ${product.hotspotTop}; left: ${product.hotspotLeft};"
-                aria-label="${product.name}">
+                aria-hidden="true">
 
                 ${product.number}
             </span>
@@ -395,14 +434,10 @@ function renderDailyLook(look) {
     const productsHTML = look.products.map((product) => {
         return `
             <li class="look-product">
-                <span class="product-number">
-                    ${product.number}
-                </span>
+                <span class="product-number">${product.number}</span>
 
                 <div class="product-info">
-                    <p class="product-category">
-                        ${product.category}
-                    </p>
+                    <p class="product-category">${product.category}</p>
 
                     <h4 class="product-name">
                         ${
@@ -415,16 +450,17 @@ function renderDailyLook(look) {
                                         class="product-link">
 
                                         ${product.name}
-                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                        <i 
+                                            class="fa-solid fa-arrow-up-right-from-square"
+                                            aria-hidden="true"
+                                        ></i>
                                     </a>
                                 `
                                 : product.name
                         }
                     </h4>
 
-                    <p class="product-detail">
-                        ${product.detail}
-                    </p>
+                    <p class="product-detail">${product.detail}</p>
                 </div>
             </li>
         `;

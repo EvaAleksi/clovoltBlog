@@ -8,7 +8,6 @@
             content="width=device-width, initial-scale=1.0"
         >
 
-
         <title>Clovolt | Fashion Blog</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +28,9 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         >
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/global.css">
         <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/footer.css">
     </head>
 
@@ -44,10 +44,7 @@
                 aria-label="Featured fashion stories">
 
                 <div class="carousel-slides">
-                    <article 
-                        class="carousel-slide active"
-                        aria-hidden="false">
-
+                    <article class="carousel-slide active" aria-hidden="false">
                         <div class="slide-content">
                             <span class="slide-number">1 / 3</span>
 
@@ -78,10 +75,7 @@
                         </div>
                     </article>
 
-                    <article
-                        class="carousel-slide"
-                        aria-hidden="true">
-
+                    <article class="carousel-slide" aria-hidden="true">
                         <div class="slide-content">
                             <span class="slide-number">2 / 3</span>
 
@@ -111,10 +105,7 @@
                         </div>
                     </article>
 
-                    <article
-                        class="carousel-slide"
-                        aria-hidden="true">
-
+                    <article class="carousel-slide" aria-hidden="true">
                         <div class="slide-content">
                             <span class="slide-number">3 / 3</span>
 
@@ -167,10 +158,7 @@
                     ></i>
                 </button>
 
-                <div
-                    class="carousel-indicators"
-                    aria-label="Choose a slide">
-
+                <div class="carousel-indicators" aria-label="Choose a slide">
                     <button
                         class="carousel-indicator active"
                         type="button"
@@ -198,13 +186,12 @@
             <section class="latest-posts">
                 <div class="section-heading">
                     <div>
-                        <p class="section-label">Explore the Blog</p>
+                        <p class="section-label-dark">Explore the Blog</p>
                         <h2>Latest Stories</h2>
                     </div>
 
                     <a class="view-all-link" href="explore.html">
                         View All Articles
-
                         <i
                             class="fa-solid fa-arrow-right"
                             aria-hidden="true"
@@ -212,10 +199,7 @@
                     </a>
                 </div>
 
-                <div
-                    class="articles-grid"
-                    id="latest-articles">
-
+                <div class="articles-grid" id="latest-articles">
                     <p class="loading-message">
                         Loading latest articles...
                     </p>
@@ -226,16 +210,11 @@
                 <div class="section-heading">
                     <div>
                         <p class="section-label">FIND YOUR INSPIRATION</p>
-
                         <h2>Explore by Category</h2>
                     </div>
 
-                    <a 
-                        class="view-all-link"
-                        href="explore.html">
-
+                    <a class="view-all-link" href="explore.html">
                         Explore all
-                        
                         <i
                             class="fa-solid fa-arrow-right"
                             aria-hidden="true"
@@ -252,8 +231,6 @@
                             src="images/categories/trends.jpg"
                             alt="Modern seasonal fashion trends."
                         >
-
-                        <div class="category-overlay"></div>
 
                         <div class="category-content">
                             <span>01</span>
@@ -273,14 +250,12 @@
 
                     <a
                         class="category-card"
-                        href="explore.html?category=StyleGuide">
+                        href="explore.html?category=Style%20Guide">
                         
                         <img
                             src="images/categories/style-guides.jpg"
                             alt="Clothing prepared for a fashion style guide"
                         >
-
-                        <div class="category-overlay"></div>
 
                         <div class="category-content">
                             <span>02</span>
@@ -301,12 +276,11 @@
                     <a
                         class="category-card"
                         href="explore.html?category=Inspiration">
+
                         <img
                             src="images/categories/inspiration.jpg"
                             alt="Creative fashion and outfit inspiration."
                         >
-
-                        <div class="category-overlay"></div>
 
                         <div class="category-content">
                             <span>03</span>
@@ -326,14 +300,12 @@
 
                     <a
                         class="category-card category-card-wide"
-                        href="explore.html?category=WardrobeEssentials">
+                        href="explore.html?category=Wardrobe%20Essentials">
 
                         <img
                             src="images/categories/wardrobe-essentials.jpg"
                             alt="Versatile wardrobe essentials."
                         >
-
-                        <div class="category-overlay"></div>
 
                         <div class="category-content">
                             <span>04</span>
@@ -353,18 +325,14 @@
                 </div>
             </section>
 
-            <section
-                class="article-of-day"
-                id="article-of-day">
-
+            <section class="article-of-day" id="article-of-day">
                 <p class="loading-message">Loading article of the day...</p>
             </section>
 
             <section class="shop-look-preview">
                 <div class="shop-look-heading">
                     <div>
-                        <p class="section-label">CURATED BY CLOVOLT</p>
-
+                        <p class="section-label-dark">CURATED BY CLOVOLT</p>
                         <h2>Shop the Look</h2>
                     </div>
 
@@ -374,17 +342,13 @@
                     </p>
                 </div>
 
-                <div
-                    class="featured-look"
-                    id="featured-look">
-                    
+                <div class="featured-look" id="featured-look">
                     <p class="loading-message">Loading today's look...</p>
                 </div>
 
                 <div class="shop-look-action">
                     <a href="shop-the-look.html" class="shop-look-button">
                         Explore All Looks
-
                         <i 
                             class="fa-solid fa-arrow-right"
                             aria-hidden="true">
