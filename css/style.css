@@ -1,7 +1,7 @@
 .hero-carousel {
     position: relative;
     width: min(1400px, 90%);
-    margin: 32px auto 60px;
+    margin: 10px auto 60px;
     overflow: hidden;
     background-color: var(--soft-beige);
 }
@@ -165,7 +165,6 @@
     background-color: var(--electric-lime);
 }
 
-
 .carousel-indicator:hover {
     opacity: 1;
 }
@@ -179,8 +178,8 @@
 
 .latest-posts {
     width: min(1400px, 90%);
-    margin: 0 auto;
-    padding: 50px 0;
+    margin: 0 auto 50px;
+    padding: 50px 0 50px;
     color: var(--warm-white);
     background-color: var(--charcoal-black);
     box-shadow: 0 0 0 100vmax var(--charcoal-black);
@@ -193,14 +192,6 @@
     justify-content: space-between;
     align-items: end;
     gap: 30px;
-}
-
-.section-label {
-    color: var(--muted-lavender);
-    letter-spacing: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 8px;
 }
 
 .section-label-dark {
@@ -338,16 +329,9 @@
     color: var(--muted-lavender);
 }
 
-.loading-message,
-.error-message {
-    grid-column: 1 / -1;
-    padding: 40px;
-    text-align: center;
-}
-
 .categories-section {
     width: min(1400px, 90%);
-    margin: 0 auto;
+    margin: 40px auto 0; 
     padding: 20px 0 110px;
 }
 
@@ -593,7 +577,7 @@
 }
 
 .shop-look-preview {
-    padding: 100px 5%;
+    padding: 40px 5%;
     color: var(--warm-white);
     background-color: var(--charcoal-black);
 }
@@ -858,25 +842,6 @@
 .product-link:hover > i {
     color: var(--electric-lime);
     transform: translate(2px, -2px);
-}
-
-.featured-look > .loading-message,
-.featured-look > .error-message {
-    grid-column: 1 / -1;
-    margin: 0;
-    padding: 80px 30px;
-    text-align: center;
-    font-family: var(--body-font);
-    font-size: 14px;
-    line-height: 22px;
-}
-
-.featured-look > .loading-message {
-    color: var(--charcoal-black);
-}
-
-.featured-look > .error-message {
-    color: var(--muted-lavender);
 }
 
 .shop-look-action {
@@ -1256,13 +1221,6 @@
 
     .look-details {
         padding: 42px 24px;
-    }
-
-    .featured-look > .loading-message,
-    .featured-look > .error-message {
-        padding: 60px 20px;
-        font-size: 13px;
-        line-height: 21px;
     }
 
     .look-style {

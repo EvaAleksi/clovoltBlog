@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+
+        <title>Clovolt | Explore</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        >
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        >
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        >
+        
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/explore.css">
+        <link rel="stylesheet" href="css/footer.css">
+    </head>
+
+    <body>
+        <div id="header-container"></div>
+
+        <main>
+            <section class="explore-introduction">
+                <h1>Explore</h1>
+
+                <div class="explore-title-line" aria-hidden="true"></div>
+
+                <p class="explore-description">
+                    Discover fashion stories, styling ideas and the latest trends.
+                </p>
+
+                <form class="article-search" id="article-search" role="search">
+                    <div class="search-field">
+                        <i
+                            class="fa-brands fa-searchengin"
+                            aria-hidden="true"
+                        ></i>
+
+                        <input
+                            type="search"
+                            id="article-search-input"
+                            name="search"
+                            placeholder="Search articles..."
+                            aria-label="Search articles"
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <button class="search-button" type="submit">Search</button>
+                </form>
+            </section>
+
+            <section class="article-filters" aria-labelledby="category-filter-heading">
+                <h2 id="category-filter-heading">Browse by Category</h2>
+
+                <div
+                    class="category-filter-list"
+                    role="group"
+                    aria-label="Filter articles by category">
+
+                    <button
+                        class="category-filter active"
+                        type="button"
+                        data-category="all"
+                        aria-pressed="true">
+
+                        All Articles
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        type="button"
+                        data-category="Trends"
+                        aria-pressed="false">
+
+                        Trends
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        type="button"
+                        data-category="Style Guide"
+                        aria-pressed="false">
+
+                        Style Guides
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        type="button"
+                        data-category="Inspiration"
+                        aria-pressed="false">
+
+                        Inspiration
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        type="button"
+                        data-category="Wardrobe Essentials"
+                        aria-pressed="false">
+
+                        Wardrobe Essentials
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        type="button"
+                        data-category="Accessories"
+                        aria-pressed="false">
+
+                        Accessories
+                    </button>
+                </div>
+            </section>
+
+            <section class="explore-articles" aria-labelledby="articles-heading">
+                <div class="explore-articles-heading">
+                    <div>
+                        <p class="section-label">FASHION STORIES</p>
+
+                        <h2 id="articles-heading">Latest Articles</h2>
+                    </div>
+
+                    <p
+                        class="articles-result-count"
+                        id="articles-result-count"
+                        aria-live="polite"
+                    ></p>
+                </div>
+
+                <div class="explore-articles-grid" id="explore-articles-grid">
+                    <p class="loading-message">Loading articles...</p>
+                </div>
+
+                <p class="no-results-message" id="no-results-message" hidden>
+                    No articles match your search.
+                </p>
+
+                <div class="load-more-container">
+                    <button
+                        class="load-more-button"
+                        id="load-more-button"
+                        type="button">
+
+                        Load More
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <div id="footer-container"></div>
+
+        <script src="js/header.js"></script>
+        <script src="js/footer.js"></script>
+        <script src="js/explore.js"></script>
+    </body>
+</html>

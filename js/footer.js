@@ -24,7 +24,7 @@ fetch("components/footer.html")
             const linkPage = link.getAttribute("href").split("/").pop();
 
             if (linkPage === currentPage) {
-                link.setAttribute("aria-current", page);
+                link.setAttribute("aria-current", "page");
             } else {
                 link.removeAttribute("aria-current");
             }

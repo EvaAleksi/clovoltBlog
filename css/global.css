@@ -55,6 +55,33 @@ button {
     color: inherit;
 }
 
+.section-label {
+    color: var(--muted-lavender);
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.loading-message,
+.error-message {
+    grid-column: 1 / -1;
+    padding: 40px;
+    color: var(--charcoal-black);
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .loading-message,
+    .error-message {
+        padding: 30px 20px;
+        font-size: 13px;
+        line-height: 21px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
