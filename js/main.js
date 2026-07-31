@@ -1,3 +1,5 @@
+import { getStoredFavoriteArticles, isArticleFavorite, toggleArticleFavorite, updateArticleFavoriteButton } from "./favorites.js";
+
 const heroCarousel = document.getElementById("hero-carousel");
 const carouselSlides = document.querySelectorAll(".carousel-slide");
 const previousSlideButton = document.querySelector(".previous-slide");
@@ -247,93 +249,33 @@ fetch("data/articles.json")
 function setupArticleFavorites(articles) {
     const favoriteButtons = document.querySelectorAll(".article-favorite");
 
-    let favoriteArticles = [];
-
-    try {
-        const storedFavorites = localStorage.getItem("favoriteArticles");
-
-        const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
-
-        favoriteArticles = Array.isArray(parsedFavorites) ? parsedFavorites : [];
-    } catch (error) {
-        console.error("Favorites could not be read from localStorage:", error);
-
-        favoriteArticles = [];
-    }
+    let favoriteArticles = getStoredFavoriteArticles();
 
     favoriteButtons.forEach((button) => {
         const articleId = Number(button.dataset.articleId);
 
-        const isAlreadySaved = favoriteArticles.some(
-            (favoriteArticle) => {return favoriteArticle.id === articleId;}
-        );
+        const selectedArticle = articles.find((article) => {
+            return article.id === articleId;
+        });
 
-        updateFavoriteButton(button, isAlreadySaved);
+        if (!selectedArticle) {
+            console.error(`Article with ID ${articleId} was not found.`);
+
+            return;
+        }
+
+        let isSaved = isArticleFavorite(favoriteArticles, articleId);
+
+        updateArticleFavoriteButton(button, selectedArticle, isSaved);
 
         button.addEventListener("click", () => {
-            const selectedArticle = articles.find(
-                (article) => {return article.id === articleId;}
-            );
+            favoriteArticles = toggleArticleFavorite(favoriteArticles, selectedArticle);
 
-            if (!selectedArticle) {
-                console.error(`Article with ID ${articleId} was not found.`);
-                return;
-            }
+            isSaved = isArticleFavorite(favoriteArticles, articleId);
 
-            const isSaved = favoriteArticles.some(
-                (favoriteArticle) => {return favoriteArticle.id === articleId;}
-            );
-
-            let updatedFavoriteArticles;
-
-            if (isSaved) {
-                updatedFavoriteArticles = favoriteArticles.filter(
-                    (favoriteArticle) => {return favoriteArticle.id !== articleId;}
-                );
-            } else {
-                updatedFavoriteArticles = [
-                    ...favoriteArticles,
-                    selectedArticle
-                ];
-            }
-
-            try {
-                localStorage.setItem(
-                    "favoriteArticles",
-                    JSON.stringify(updatedFavoriteArticles)
-                );
-
-                favoriteArticles = updatedFavoriteArticles;
-
-                updateFavoriteButton(button, !isSaved);
-            } catch (error) {
-                console.error("Favorites could not be saved:", error);
-            }
+            updateArticleFavoriteButton(button, selectedArticle, isSaved);
         });
     });
-}
-
-
-function updateFavoriteButton(button, isSaved) {
-    const heartIcon = button.querySelector("i");
-
-    button.setAttribute("aria-pressed", String(isSaved));
-
-    if (isSaved) {
-        button.classList.add("saved");
-
-        heartIcon.classList.remove("fa-regular");
-        heartIcon.classList.add("fa-solid");
-
-        button.setAttribute("aria-label", "Remove article from favorites");
-    } else {
-        button.classList.remove("saved");
-
-        heartIcon.classList.remove("fa-solid");
-        heartIcon.classList.add("fa-regular");
-
-        button.setAttribute("aria-label", "Add article to favorites");
-    }
 }
 
 

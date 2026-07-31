@@ -1,3 +1,5 @@
+import { getStoredFavoriteArticles, isArticleFavorite, toggleArticleFavorite, updateArticleFavoriteButton } from "./favorites.js";
+
 const articlesGrid = document.querySelector("#explore-articles-grid");
 const articlesResultCount = document.querySelector("#articles-result-count");
 const noResultMessage = document.querySelector("#no-results-message");
@@ -15,21 +17,6 @@ let favoriteArticles = getStoredFavoriteArticles();
 let filteredArticles = [];
 let visibleArticleCount = initialVisibleArticleCount;
 let activeCategory = "all";
-
-
-function getStoredFavoriteArticles() {
-    try {
-        const storedFavorites = localStorage.getItem("favoriteArticles");
-
-        const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
-
-        return Array.isArray(parsedFavorites) ? parsedFavorites : [];
-    } catch (error) {
-        console.error("Favorites could not be read from localStorage:", error);
-
-        return [];
-    }
-}
 
 
 async function loadArticles() {
@@ -63,9 +50,7 @@ async function loadArticles() {
 function createArticleCard(article, index) {
     const articleNumber = String(index + 1).padStart(2, "0");
 
-    const isSaved = favoriteArticles.some((favoriteArticle) => {
-        return favoriteArticle.id === article.id;
-    });
+    const isSaved = isArticleFavorite(favoriteArticles, article.id);
 
     const favoriteButtonClass = isSaved ? "explore-favorite-button saved" : "explore-favorite-button";
 
@@ -122,54 +107,6 @@ function createArticleCard(article, index) {
 }
 
 
-function toggleArticleFavorite(articleId) {
-    const selectedArticle = allArticles.find((article) => {
-        return article.id === articleId;
-    });
-
-    if (!selectedArticle) {
-        return;
-    }
-
-    const savedArticleIndex = favoriteArticles.findIndex((article) => {
-        return article.id === articleId;
-    });
-
-    if (savedArticleIndex === -1) {
-        favoriteArticles.push(selectedArticle);
-    } else {
-        favoriteArticles.splice(savedArticleIndex, 1);
-    }
-
-    try {
-        localStorage.setItem(
-            "favoriteArticles",
-            JSON.stringify(favoriteArticles)
-        );
-    } catch (error) {
-        console.error(
-            "Favorites could not be saved to localStorage:",
-            error
-        );
-    }
-}
-
-
-function updateFavoriteButton(button, article, isSaved) {
-    const heartIcon = button.querySelector("i");
-
-    button.classList.toggle("saved",isSaved);
-    button.setAttribute("aria-pressed", String(isSaved));
-    button.setAttribute(
-        "aria-label",
-        isSaved ? `Remove ${article.title} from favorites` : `Add ${article.title} to favorites`
-    );
-
-    heartIcon.classList.toggle("fa-solid", isSaved);
-    heartIcon.classList.toggle("fa-regular", !isSaved);
-}
-
-
 articlesGrid.addEventListener("click", (event) => {
     const favoriteButton = event.target.closest(".explore-favorite-button");
 
@@ -179,21 +116,21 @@ articlesGrid.addEventListener("click", (event) => {
 
     const articleId = Number(favoriteButton.dataset.articleId);
 
-    toggleArticleFavorite(articleId);
-
     const selectedArticle = allArticles.find((article) => {
         return article.id === articleId;
     });
 
     if (!selectedArticle) {
+        console.error(`Article with ID ${articleId} was not found.`);
+
         return;
     }
 
-    const isSaved = favoriteArticles.some((article) => {
-        return article.id === articleId;
-    });
+    favoriteArticles = toggleArticleFavorite(favoriteArticles, selectedArticle);
 
-    updateFavoriteButton(favoriteButton, selectedArticle, isSaved);
+    const isSaved = isArticleFavorite(favoriteArticles, articleId);
+
+    updateArticleFavoriteButton(favoriteButton, selectedArticle, isSaved);
 });
 
 
