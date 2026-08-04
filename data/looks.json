@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Powder Blue City Layers",
-    "style": "Elegant Street Style",
+    "style": "Streetwear",
     "description": "Tonal blue layers combine a structured long coat, a fluid midi dress and crisp white boots, finished with soft pastel accessories.",
     "image": "images/looks/look1.jpg",
     "products": [
@@ -65,7 +65,7 @@
   {
     "id": 2,
     "name": "Soft White Layers",
-    "style": "Romantic Casual",
+    "style": "Casual",
     "description": "A relaxed monochrome outfit built from soft white separates, delicate lace and dark accessories for subtle contrast.",
     "image": "images/looks/look2.jpg",
     "products": [
@@ -128,7 +128,7 @@
   {
     "id": 3,
     "name": "Teddy and Denim",
-    "style": "Y2K Streetwear",
+    "style": "Streetwear",
     "description": "A cream teddy jacket softens the fitted black top and layered denim mini skirt for a playful cold-weather street look.",
     "image": "images/looks/look3.jpg",
     "products": [
@@ -182,7 +182,7 @@
   {
     "id": 4,
     "name": "Midnight City Uniform",
-    "style": "Minimal Street Style",
+    "style": "Streetwear",
     "description": "An all-black city outfit combines a cropped bomber, a subtle shimmer top and flowing trousers for a clean evening-ready silhouette.",
     "image": "images/looks/look4.jpg",
     "products": [
@@ -227,7 +227,7 @@
   {
     "id": 5,
     "name": "Olive Denim Weekend",
-    "style": "Everyday Casual",
+    "style": "Casual",
     "description": "An olive off-shoulder top and distressed relaxed jeans create an easy daytime outfit finished with chunky sneakers and a mini bag.",
     "image": "images/looks/look5.jpg",
     "products": [
@@ -281,7 +281,7 @@
   {
     "id": 6,
     "name": "Varsity Leather Mix",
-    "style": "Sporty Streetwear",
+    "style": "Streetwear",
     "description": "A leather blazer and monochrome separates meet varsity socks and high-top sneakers in a sharp sport-inspired street look.",
     "image": "images/looks/look6.jpg",
     "products": [
@@ -335,7 +335,7 @@
   {
     "id": 7,
     "name": "Red Stripe Essentials",
-    "style": "Classic Casual",
+    "style": "Casual",
     "description": "A simple flat-lay outfit pairs straight blue denim with crisp white layers, red stripes and matching red sandals.",
     "image": "images/looks/look7.jpg",
     "products": [
@@ -380,7 +380,7 @@
   {
     "id": 8,
     "name": "Golden Sport Set",
-    "style": "Elevated Athleisure",
+    "style": "Sporty",
     "description": "A bright yellow matching set turns relaxed sportswear into a statement look with sleek white pointed boots.",
     "image": "images/looks/look8.jpg",
     "products": [
@@ -425,7 +425,7 @@
   {
     "id": 9,
     "name": "Modern Grey Tailoring",
-    "style": "Contemporary Chic",
+    "style": "Chic",
     "description": "An oversized grey blazer creates a modern mini silhouette, completed with a tonal crossbody bag and tall black boots.",
     "image": "images/looks/look9.jpg",
     "products": [
@@ -479,7 +479,7 @@
   {
     "id": 10,
     "name": "Retro Red Streetwear",
-    "style": "Sporty Y2K",
+    "style": "Sporty",
     "description": "Red statement layers energize relaxed cuffed denim, while graphic accessories and monochrome sneakers complete the retro sports look.",
     "image": "images/looks/look10.jpg",
     "products": [

@@ -1,4 +1,5 @@
 const favoriteArticlesStorageKey = "favoriteArticles";
+const favoriteLooksStorageKey = "favoriteLooks";
 
 export function getStoredFavoriteArticles() {
     try {
@@ -74,4 +75,73 @@ export function updateArticleFavoriteButton(button, article, isSaved) {
     if (favoriteLabel) {
         favoriteLabel.textContent = isSaved ? "Saved Article" : "Save Article";
     }
+}
+
+
+export function getStoredFavoriteLooks() {
+    try {
+        const storedFavorites = localStorage.getItem(favoriteLooksStorageKey);
+
+        const parsedFavorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+        return Array.isArray(parsedFavorites) ? parsedFavorites : [];
+    } catch (error) {
+        console.error("Favorite looks could not be read from localStorage:", error);
+
+        return [];
+    }
+}
+
+
+function saveFavoriteLooks(favoriteLooks) {
+    try {
+        localStorage.setItem(
+            favoriteLooksStorageKey,
+            JSON.stringify(favoriteLooks)
+        );
+
+        return true;
+    } catch (error) {
+        console.error("Favorite looks could not be saved to localStorage:", error);
+
+        return false;
+    }
+}
+
+
+export function isLookFavorite(favoriteLooks, lookId) {
+    return favoriteLooks.some((favoriteLook) => {
+        return favoriteLook.id === lookId;
+    });
+}
+
+
+export function toggleLookFavorite(favoriteLooks, selectedLook) {
+    const isSaved = isLookFavorite(favoriteLooks, selectedLook.id);
+
+    const updatedFavoriteLooks = isSaved ? favoriteLooks.filter((favoriteLook) => {
+        return favoriteLook.id !== selectedLook.id;
+    }) : [...favoriteLooks, selectedLook];
+
+    const wereFavoritesSaved = saveFavoriteLooks(updatedFavoriteLooks);
+
+    return wereFavoritesSaved ? updatedFavoriteLooks : favoriteLooks;
+}
+
+
+export function updateLookFavoriteButton(button, look, isSaved) {
+    const heartIcon = button.querySelector(".fa-heart");
+
+    button.classList.toggle("saved", isSaved);
+    button.setAttribute("aria-pressed", String(isSaved));
+
+    button.setAttribute(
+        "aria-label",
+        isSaved
+            ? `Remove ${look.name} from favorites`
+            : `Add ${look.name} to favorites`
+    );
+
+    heartIcon.classList.toggle("fa-solid", isSaved);
+    heartIcon.classList.toggle("fa-regular", !isSaved);
 }
