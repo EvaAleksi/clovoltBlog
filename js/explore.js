@@ -212,7 +212,7 @@ searchInput.addEventListener("input", () => {
 });
 
 
-function selectedCategory(selectedButton) {
+function selectCategory(selectedButton) {
     activeCategory = selectedButton.dataset.category;
 
     categoryFilters.forEach((button) => {
@@ -237,20 +237,13 @@ function applyCategoryFromUrl() {
 
     if (!matchingButton) {return;}
 
-    selectedCategory(matchingButton);
+    selectCategory(matchingButton);
 }
 
 
 categoryFilters.forEach((categoryButton) => {
     categoryButton.addEventListener("click", () => {
-        activeCategory = categoryButton.dataset.category;
-
-        categoryFilters.forEach((button) => {
-            const isActive = button === categoryButton;
-
-            button.classList.toggle("active", isActive);
-            button.setAttribute("aria-pressed", String(isActive));
-        });
+        selectCategory(categoryButton);
 
         applyArticleFilters();
     });
@@ -270,6 +263,27 @@ loadMoreButton.addEventListener("click", () => {
     }
 
     renderArticles();
+});
+
+
+function refreshArticleFavorites() {
+    favoriteArticles = getStoredFavoriteArticles();
+
+    if (allArticles.length > 0) {
+        renderArticles();
+    }
+}
+
+
+window.addEventListener("pageshow", () => {
+    refreshArticleFavorites();
+});
+
+
+window.addEventListener("storage", (event) => {
+    if (event.key === "favoriteArticles") {
+        refreshArticleFavorites();
+    }
 });
 
 

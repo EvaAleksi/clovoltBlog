@@ -129,12 +129,20 @@ function applyLookFilters() {
     const searchTerm = searchInput.value.trim().toLowerCase();
 
     filteredLooks = allLooks.filter((look) => {
-        const matchesStyle = activeStyle === "all" ||
-            look.style.toLowerCase() === activeStyle;
+        const searchableLookText = `
+            ${look.name || ""}
+            ${look.style || ""}
+            ${look.description || ""}
+        `.toLowerCase();
+
+        const lookStyle = String(look.style || "").toLowerCase();
+
+        const matchesStyle =
+            activeStyle === "all" ||
+            lookStyle === activeStyle.toLowerCase();
 
         const matchesSearch =
-            look.name.toLowerCase().includes(searchTerm) ||
-            look.description.toLowerCase().includes(searchTerm);
+            searchableLookText.includes(searchTerm);
 
         return matchesStyle && matchesSearch;
     });
@@ -167,6 +175,11 @@ searchForm.addEventListener("submit", (event) => {
 
     applyLookFilters();
 })
+
+
+searchInput.addEventListener("input", () => {
+    applyLookFilters();
+});
 
 
 looksGrid.addEventListener("click", (event) => {
@@ -212,6 +225,27 @@ loadMoreButton.addEventListener("click", () => {
 
     renderLooks();
 })
+
+
+function refreshLookFavorites() {
+    favoriteLooks = getStoredFavoriteLooks();
+
+    if (allLooks.length > 0) {
+        renderLooks();
+    }
+}
+
+
+window.addEventListener("pageshow", () => {
+    refreshLookFavorites();
+});
+
+
+window.addEventListener("storage", (event) => {
+    if (event.key === "favoriteLooks") {
+        refreshLookFavorites();
+    }
+});
 
 
 loadLooks();
