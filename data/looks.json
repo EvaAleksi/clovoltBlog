@@ -1,0 +1,560 @@
+[
+  {
+    "id": 1,
+    "name": "Powder Blue City Layers",
+    "style": "Streetwear",
+    "description": "Tonal blue layers combine a structured long coat, a fluid midi dress and crisp white boots, finished with soft pastel accessories.",
+    "image": "images/looks/look1.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Powder Blue Long Coat",
+        "detail": "Structured statement layer",
+        "productUrl": "https://www.asos.com/us/asos-design/asos-design-longline-linen-mix-trench-coat-in-blue/prd/205765773",
+        "hotspotTop": "45%",
+        "hotspotLeft": "42%"
+      },
+      {
+        "number": 2,
+        "category": "Dresses",
+        "name": "Blue Midi Dress",
+        "detail": "Fluid tonal base",
+        "productUrl": "https://www.asos.com/us/other-stories/other-stories-bias-cut-satin-midi-dress-in-light-blue/prd/207949367",
+        "hotspotTop": "64%",
+        "hotspotLeft": "48%"
+      },
+      {
+        "number": 3,
+        "category": "Accessories",
+        "name": "Light Grey Scarf",
+        "detail": "Soft draped accent",
+        "productUrl": "https://www.massimodutti.com/us/cashmere-scarf-l06338650",
+        "hotspotTop": "29%",
+        "hotspotLeft": "54%"
+      },
+      {
+        "number": 4,
+        "category": "Bags",
+        "name": "Pink Crossbody Bag",
+        "detail": "Pastel contrast accessory",
+        "productUrl": "https://www.katespadeoutlet.com/products/quinn-mini-crossbody-bag/KN716-650.html",
+        "hotspotTop": "50%",
+        "hotspotLeft": "46%"
+      },
+      {
+        "number": 5,
+        "category": "Shoes",
+        "name": "White Ankle Boots",
+        "detail": "Clean block-heel finish",
+        "productUrl": "https://www.asos.com/us/topshop/topshop-nyla-ankle-boots-with-angled-block-heel-in-white/prd/206411459",
+        "hotspotTop": "87%",
+        "hotspotLeft": "54%"
+      },
+      {
+        "number": 6,
+        "category": "Accessories",
+        "name": "Black Cat-Eye Sunglasses",
+        "detail": "Sharp retro eyewear",
+        "productUrl": "https://www.ray-ban.com/usa/sunglasses/RB4314N%20FEMALE%20nina-black/8053672970708",
+        "hotspotTop": "21%",
+        "hotspotLeft": "48%"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Soft White Layers",
+    "style": "Casual",
+    "description": "A relaxed monochrome outfit built from soft white separates, delicate lace and dark accessories for subtle contrast.",
+    "image": "images/looks/look2.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Oversized White Zip Hoodie",
+        "detail": "Relaxed lightweight layer",
+        "productUrl": "",
+        "hotspotTop": "35%",
+        "hotspotLeft": "45%"
+      },
+      {
+        "number": 2,
+        "category": "Tops",
+        "name": "White Camisole Top",
+        "detail": "Simple fitted base",
+        "productUrl": "",
+        "hotspotTop": "27%",
+        "hotspotLeft": "55%"
+      },
+      {
+        "number": 3,
+        "category": "Skirts",
+        "name": "White Lace Maxi Skirt",
+        "detail": "Romantic textured silhouette",
+        "productUrl": "",
+        "hotspotTop": "69%",
+        "hotspotLeft": "54%"
+      },
+      {
+        "number": 4,
+        "category": "Bags",
+        "name": "White Shoulder Bag",
+        "detail": "Roomy tonal accessory",
+        "productUrl": "",
+        "hotspotTop": "48%",
+        "hotspotLeft": "72%"
+      },
+      {
+        "number": 5,
+        "category": "Shoes",
+        "name": "Black Ballet Flats",
+        "detail": "Polished dark contrast",
+        "productUrl": "",
+        "hotspotTop": "91%",
+        "hotspotLeft": "54%"
+      },
+      {
+        "number": 6,
+        "category": "Accessories",
+        "name": "Oversized Black Sunglasses",
+        "detail": "Bold statement eyewear",
+        "productUrl": "",
+        "hotspotTop": "12%",
+        "hotspotLeft": "55%"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Teddy and Denim",
+    "style": "Streetwear",
+    "description": "A cream teddy jacket softens the fitted black top and layered denim mini skirt for a playful cold-weather street look.",
+    "image": "images/looks/look3.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Cream Teddy Jacket",
+        "detail": "Textured oversized layer",
+        "productUrl": "",
+        "hotspotTop": "44%",
+        "hotspotLeft": "39%"
+      },
+      {
+        "number": 2,
+        "category": "Tops",
+        "name": "Black Asymmetric Crop Top",
+        "detail": "Fitted one-shoulder base",
+        "productUrl": "",
+        "hotspotTop": "49%",
+        "hotspotLeft": "50%"
+      },
+      {
+        "number": 3,
+        "category": "Skirts",
+        "name": "Layered Denim Mini Skirt",
+        "detail": "Y2K-inspired denim piece",
+        "productUrl": "",
+        "hotspotTop": "72%",
+        "hotspotLeft": "48%"
+      },
+      {
+        "number": 4,
+        "category": "Accessories",
+        "name": "Statement Webbing Belt",
+        "detail": "Graphic waist detail",
+        "productUrl": "",
+        "hotspotTop": "67%",
+        "hotspotLeft": "48%"
+      },
+      {
+        "number": 5,
+        "category": "Accessories",
+        "name": "Tinted Oversized Sunglasses",
+        "detail": "Warm-toned statement eyewear",
+        "productUrl": "",
+        "hotspotTop": "24%",
+        "hotspotLeft": "48%"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Midnight City Uniform",
+    "style": "Streetwear",
+    "description": "An all-black city outfit combines a cropped bomber, a subtle shimmer top and flowing trousers for a clean evening-ready silhouette.",
+    "image": "images/looks/look4.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Black Cropped Bomber Jacket",
+        "detail": "Modern structured layer",
+        "productUrl": "",
+        "hotspotTop": "47%",
+        "hotspotLeft": "42%"
+      },
+      {
+        "number": 2,
+        "category": "Tops",
+        "name": "Black Shimmer Crop Top",
+        "detail": "Subtle evening sparkle",
+        "productUrl": "",
+        "hotspotTop": "46%",
+        "hotspotLeft": "48%"
+      },
+      {
+        "number": 3,
+        "category": "Trousers",
+        "name": "Black Wide-Leg Trousers",
+        "detail": "Fluid tailored base",
+        "productUrl": "",
+        "hotspotTop": "76%",
+        "hotspotLeft": "40%"
+      },
+      {
+        "number": 4,
+        "category": "Jewellery",
+        "name": "Minimal Hoop Earrings",
+        "detail": "Simple metallic accent",
+        "productUrl": "",
+        "hotspotTop": "24%",
+        "hotspotLeft": "48%"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Olive Denim Weekend",
+    "style": "Casual",
+    "description": "An olive off-shoulder top and distressed relaxed jeans create an easy daytime outfit finished with chunky sneakers and a mini bag.",
+    "image": "images/looks/look5.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Tops",
+        "name": "Olive Off-Shoulder Zip Top",
+        "detail": "Fitted statement top",
+        "productUrl": "",
+        "hotspotTop": "40%",
+        "hotspotLeft": "51%"
+      },
+      {
+        "number": 2,
+        "category": "Jeans",
+        "name": "Distressed Relaxed Jeans",
+        "detail": "Casual ripped denim",
+        "productUrl": "",
+        "hotspotTop": "67%",
+        "hotspotLeft": "51%"
+      },
+      {
+        "number": 3,
+        "category": "Bags",
+        "name": "White Mini Handbag",
+        "detail": "Compact neutral accessory",
+        "productUrl": "",
+        "hotspotTop": "67%",
+        "hotspotLeft": "26%"
+      },
+      {
+        "number": 4,
+        "category": "Shoes",
+        "name": "Chunky Grey Sneakers",
+        "detail": "Comfort-focused sporty finish",
+        "productUrl": "",
+        "hotspotTop": "91%",
+        "hotspotLeft": "51%"
+      },
+      {
+        "number": 5,
+        "category": "Jewellery",
+        "name": "Delicate Pendant Necklace",
+        "detail": "Fine everyday jewellery",
+        "productUrl": "",
+        "hotspotTop": "25%",
+        "hotspotLeft": "50%"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Varsity Leather Mix",
+    "style": "Streetwear",
+    "description": "A leather blazer and monochrome separates meet varsity socks and high-top sneakers in a sharp sport-inspired street look.",
+    "image": "images/looks/look6.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Black Leather Blazer",
+        "detail": "Polished statement layer",
+        "productUrl": "",
+        "hotspotTop": "47%",
+        "hotspotLeft": "38%"
+      },
+      {
+        "number": 2,
+        "category": "Tops",
+        "name": "Black Cropped Top",
+        "detail": "Minimal fitted base",
+        "productUrl": "",
+        "hotspotTop": "41%",
+        "hotspotLeft": "50%"
+      },
+      {
+        "number": 3,
+        "category": "Shorts",
+        "name": "Black Tailored Shorts",
+        "detail": "Clean sporty bottom",
+        "productUrl": "",
+        "hotspotTop": "55%",
+        "hotspotLeft": "51%"
+      },
+      {
+        "number": 4,
+        "category": "Accessories",
+        "name": "Striped Crew Socks",
+        "detail": "Varsity-inspired detail",
+        "productUrl": "",
+        "hotspotTop": "70%",
+        "hotspotLeft": "58%"
+      },
+      {
+        "number": 5,
+        "category": "Shoes",
+        "name": "Black and White High-Top Sneakers",
+        "detail": "Graphic athletic finish",
+        "productUrl": "",
+        "hotspotTop": "82%",
+        "hotspotLeft": "61%"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Red Stripe Essentials",
+    "style": "Casual",
+    "description": "A simple flat-lay outfit pairs straight blue denim with crisp white layers, red stripes and matching red sandals.",
+    "image": "images/looks/look7.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Shirts",
+        "name": "White Button-Up Shirt",
+        "detail": "Crisp layering essential",
+        "productUrl": "",
+        "hotspotTop": "24%",
+        "hotspotLeft": "27%"
+      },
+      {
+        "number": 2,
+        "category": "Tops",
+        "name": "Red Striped T-Shirt",
+        "detail": "Classic nautical accent",
+        "productUrl": "",
+        "hotspotTop": "34%",
+        "hotspotLeft": "73%"
+      },
+      {
+        "number": 3,
+        "category": "Jeans",
+        "name": "Straight-Leg Blue Jeans",
+        "detail": "Relaxed everyday denim",
+        "productUrl": "",
+        "hotspotTop": "52%",
+        "hotspotLeft": "43%"
+      },
+      {
+        "number": 4,
+        "category": "Shoes",
+        "name": "Red Flat Sandals",
+        "detail": "Bright coordinated finish",
+        "productUrl": "",
+        "hotspotTop": "76%",
+        "hotspotLeft": "56%"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Golden Sport Set",
+    "style": "Sporty",
+    "description": "A bright yellow matching set turns relaxed sportswear into a statement look with sleek white pointed boots.",
+    "image": "images/looks/look8.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Tops",
+        "name": "Yellow Cropped Hoodie",
+        "detail": "Bold sporty statement top",
+        "productUrl": "",
+        "hotspotTop": "30%",
+        "hotspotLeft": "50%"
+      },
+      {
+        "number": 2,
+        "category": "Trousers",
+        "name": "Yellow Jogger Trousers",
+        "detail": "Relaxed matching bottom",
+        "productUrl": "",
+        "hotspotTop": "60%",
+        "hotspotLeft": "51%"
+      },
+      {
+        "number": 3,
+        "category": "Shoes",
+        "name": "White Pointed Ankle Boots",
+        "detail": "Sharp elevated finish",
+        "productUrl": "",
+        "hotspotTop": "89%",
+        "hotspotLeft": "50%"
+      },
+      {
+        "number": 4,
+        "category": "Jewellery",
+        "name": "Minimal Stud Earrings",
+        "detail": "Small polished accent",
+        "productUrl": "",
+        "hotspotTop": "16%",
+        "hotspotLeft": "54%"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Modern Grey Tailoring",
+    "style": "Chic",
+    "description": "An oversized grey blazer creates a modern mini silhouette, completed with a tonal crossbody bag and tall black boots.",
+    "image": "images/looks/look9.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Grey Oversized Blazer",
+        "detail": "Structured tailored statement",
+        "productUrl": "",
+        "hotspotTop": "43%",
+        "hotspotLeft": "48%"
+      },
+      {
+        "number": 2,
+        "category": "Shorts",
+        "name": "Grey Tailored Shorts",
+        "detail": "Coordinated mini base",
+        "productUrl": "",
+        "hotspotTop": "62%",
+        "hotspotLeft": "50%"
+      },
+      {
+        "number": 3,
+        "category": "Bags",
+        "name": "Grey Mini Crossbody Bag",
+        "detail": "Tonal compact accessory",
+        "productUrl": "",
+        "hotspotTop": "49%",
+        "hotspotLeft": "37%"
+      },
+      {
+        "number": 4,
+        "category": "Shoes",
+        "name": "Black Knee-High Boots",
+        "detail": "Sharp high-heel finish",
+        "productUrl": "",
+        "hotspotTop": "83%",
+        "hotspotLeft": "51%"
+      },
+      {
+        "number": 5,
+        "category": "Accessories",
+        "name": "Oversized Tinted Sunglasses",
+        "detail": "Retro statement eyewear",
+        "productUrl": "",
+        "hotspotTop": "18%",
+        "hotspotLeft": "50%"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Retro Red Streetwear",
+    "style": "Sporty",
+    "description": "Red statement layers energize relaxed cuffed denim, while graphic accessories and monochrome sneakers complete the retro sports look.",
+    "image": "images/looks/look10.jpg",
+    "products": [
+      {
+        "number": 1,
+        "category": "Outerwear",
+        "name": "Red and White Windbreaker",
+        "detail": "Retro sporty statement layer",
+        "productUrl": "",
+        "hotspotTop": "34%",
+        "hotspotLeft": "47%"
+      },
+      {
+        "number": 2,
+        "category": "Tops",
+        "name": "Red Cropped Tank Top",
+        "detail": "Bright fitted base",
+        "productUrl": "",
+        "hotspotTop": "31%",
+        "hotspotLeft": "54%"
+      },
+      {
+        "number": 3,
+        "category": "Jeans",
+        "name": "Relaxed Cuffed Jeans",
+        "detail": "Loose retro denim",
+        "productUrl": "",
+        "hotspotTop": "64%",
+        "hotspotLeft": "50%"
+      },
+      {
+        "number": 4,
+        "category": "Accessories",
+        "name": "Black Statement Belt",
+        "detail": "Decorative waist accent",
+        "productUrl": "",
+        "hotspotTop": "42%",
+        "hotspotLeft": "52%"
+      },
+      {
+        "number": 5,
+        "category": "Bags",
+        "name": "Black Shoulder Bag",
+        "detail": "Compact underarm accessory",
+        "productUrl": "",
+        "hotspotTop": "35%",
+        "hotspotLeft": "36%"
+      },
+      {
+        "number": 6,
+        "category": "Shoes",
+        "name": "Black and White Sneakers",
+        "detail": "Classic athletic finish",
+        "productUrl": "",
+        "hotspotTop": "90%",
+        "hotspotLeft": "48%"
+      },
+      {
+        "number": 7,
+        "category": "Accessories",
+        "name": "Red Cat-Eye Sunglasses",
+        "detail": "Bold coordinated eyewear",
+        "productUrl": "",
+        "hotspotTop": "10%",
+        "hotspotLeft": "49%"
+      },
+      {
+        "number": 8,
+        "category": "Accessories",
+        "name": "Graphic Sport Headband",
+        "detail": "Retro athletic hair accessory",
+        "productUrl": "",
+        "hotspotTop": "5%",
+        "hotspotLeft": "50%"
+      }
+    ]
+  }
+]

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        >
+
+        <meta
+            name="description"
+            content="Clovolt is a modern fashion blog featuring style inspiration, fashion stories and curated everyday looks."
+        >
+
+        <title>Clovolt | Fashion Blog</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        >
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        >
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        >
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <div id="header-container"></div>
+
+        <main>
+            <section
+                class="hero-carousel"
+                id="hero-carousel"
+                aria-label="Featured fashion stories">
+
+                <div class="carousel-slides">
+                    <article class="carousel-slide active" aria-hidden="false">
+                        <div class="slide-content">
+                            <span class="slide-number">1 / 3</span>
+
+                            <p class="slide-category">TREND REPORT</p>
+
+                            <h1>The New Energy of Everyday Style</h1>
+
+                            <p class="slide-description">
+                                Discover fresh fashion ideas designed to bring
+                                confidence, creativity and energy into everyday looks.
+                            </p>
+
+                            <a class="slide-link" href="explore.html">
+                                Explore the Blog
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div class="slide-image">
+                            <img
+                                src="images/hero/everyday-style.jpg"
+                                alt="Everyday fashion style"
+                                fetchpriority="high"
+                            >
+                        </div>
+                    </article>
+
+                    <article class="carousel-slide" aria-hidden="true" inert>
+                        <div class="slide-content">
+                            <span class="slide-number">2 / 3</span>
+
+                            <p class="slide-category">STYLE GUIDE</p>
+
+                            <h2>Build a Wardrobe That Feels Like You</h2>
+
+                            <p class="slide-description">
+                                Create versatile outfits by combining timeless
+                                pieces with details that express your personality.
+                            </p>
+
+                            <a class="slide-link" href="explore.html">
+                                Read the Guide
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div class="slide-image">
+                            <img
+                                src="images/hero/personal-wardrobe.jpg"
+                                alt="A curated modern wardrobe"
+                            >
+                        </div>
+                    </article>
+
+                    <article class="carousel-slide" aria-hidden="true" inert>
+                        <div class="slide-content">
+                            <span class="slide-number">3 / 3</span>
+
+                            <p class="slide-category">SHOP THE LOOK</p>
+
+                            <h2>Modern Minimalism, Styled Your Way</h2>
+
+                            <p class="slide-description">
+                                Explore a complete curated outfit and discover
+                                the individual pieces behind the look.
+                            </p>
+
+                            <a class="slide-link" href="shop-the-look.html">
+                                Shop the Look
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+
+                        <div class="slide-image">
+                            <img
+                                src="images/hero/modern-minimalist.jpg"
+                                alt="A modern minimalist outfit"
+                            >
+                        </div>
+                    </article>
+                </div>
+
+                <button
+                    class="carousel-arrow previous-slide"
+                    type="button"
+                    aria-label="Previous slide">
+
+                    <i
+                        class="fa-solid fa-caret-left"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+
+                <button
+                    class="carousel-arrow next-slide"
+                    type="button"
+                    aria-label="Next slide">
+
+                    <i
+                        class="fa-solid fa-caret-right"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+
+                <div class="carousel-indicators" role="group" aria-label="Choose a slide">
+                    <button
+                        class="carousel-indicator active"
+                        type="button"
+                        data-slide-index="0"
+                        aria-label="Show slide 1"
+                        aria-current="true"
+                    ></button>
+
+                    <button
+                        class="carousel-indicator"
+                        type="button"
+                        data-slide-index="1"
+                        aria-label="Show slide 2"
+                    ></button>
+
+                    <button
+                        class="carousel-indicator"
+                        type="button"
+                        data-slide-index="2"
+                        aria-label="Show slide 3"
+                    ></button>
+                </div>
+            </section>
+
+            <section class="latest-posts">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label section-label-dark">Explore the Blog</p>
+                        <h2>Latest Stories</h2>
+                    </div>
+
+                    <a class="view-all-link" href="explore.html">
+                        View All Articles
+                        <i
+                            class="fa-solid fa-arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+                </div>
+
+                <div class="articles-grid" id="latest-articles">
+                    <p class="loading-message">
+                        Loading latest articles...
+                    </p>
+                </div>
+            </section>
+
+            <section class="categories-section">
+                <div class="section-heading">
+                    <div>
+                        <p class="section-label">FIND YOUR INSPIRATION</p>
+                        <h2>Explore by Category</h2>
+                    </div>
+
+                    <a class="view-all-link" href="explore.html">
+                        Explore all
+                        <i
+                            class="fa-solid fa-arrow-right"
+                            aria-hidden="true"
+                        ></i>
+                    </a>
+                </div>
+
+                <div class="categories-grid">
+                    <a
+                        class="category-card category-card-large"
+                        href="explore.html?category=Trends">
+
+                        <img
+                            src="images/categories/trends.jpg"
+                            alt="Modern seasonal fashion trends."
+                        >
+
+                        <div class="category-content">
+                            <span>01</span>
+
+                            <h3>Fashion Trends</h3>
+
+                            <p>Discover what is shaping fashion now</p>
+
+                            <div class="category-arrow">
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a
+                        class="category-card"
+                        href="explore.html?category=Style%20Guide">
+                        
+                        <img
+                            src="images/categories/style-guides.jpg"
+                            alt="Clothing prepared for a fashion style guide"
+                        >
+
+                        <div class="category-content">
+                            <span>02</span>
+
+                            <h3>Style Guides</h3>
+
+                            <p>Practical ideas for styling your wardrobe.</p>
+
+                            <div class="category-arrow">
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a
+                        class="category-card"
+                        href="explore.html?category=Inspiration">
+
+                        <img
+                            src="images/categories/inspiration.jpg"
+                            alt="Creative fashion and outfit inspiration."
+                        >
+
+                        <div class="category-content">
+                            <span>03</span>
+
+                            <h3>Inspiration</h3>
+
+                            <p>Find new ideas for your personal style.</p>
+
+                            <div class="category-arrow">
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a
+                        class="category-card category-card-wide"
+                        href="explore.html?category=Wardrobe%20Essentials">
+
+                        <img
+                            src="images/categories/wardrobe-essentials.jpg"
+                            alt="Versatile wardrobe essentials."
+                        >
+
+                        <div class="category-content">
+                            <span>04</span>
+
+                            <h3>Wardrobe Essentials</h3>
+
+                            <p>Discover versatile pieces worth keeping.</p>
+
+                            <div class="category-arrow">
+                                <i
+                                    class="fa-solid fa-arrow-right"
+                                    aria-hidden="true"
+                                ></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="article-of-day" id="article-of-day">
+                <p class="loading-message">Loading article of the day...</p>
+            </section>
+
+            <section class="shop-look-preview">
+                <div class="shop-look-heading">
+                    <div>
+                        <p class="section-label section-label-dark">CURATED BY CLOVOLT</p>
+                        <h2>Shop the Look</h2>
+                    </div>
+
+                    <p class="shop-look-intro">
+                        One complete look, broken down piece by piece.
+                        Discover the styling idea and explore each item.
+                    </p>
+                </div>
+
+                <div class="featured-look" id="featured-look">
+                    <p class="loading-message">Loading today's look...</p>
+                </div>
+
+                <div class="shop-look-action">
+                    <a href="shop-the-look.html" class="shop-look-button">
+                        Explore All Looks
+                        <i 
+                            class="fa-solid fa-arrow-right"
+                            aria-hidden="true">
+                        </i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <div id="footer-container"></div>
+
+        <script src="js/header.js"></script>
+        <script src="js/footer.js"></script>
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>
