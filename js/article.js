@@ -9,7 +9,7 @@ async function loadArticle() {
         const urlParameters = new URLSearchParams(window.location.search);
         const articleId = Number(urlParameters.get("id"));
 
-        if (!articleId) {
+        if (!Number.isInteger(articleId) || articleId <= 0) {
             throw new Error("No article was selected.");
         }
 
@@ -20,6 +20,10 @@ async function loadArticle() {
         }
 
         const articles = await response.json();
+
+        if (!Array.isArray(articles)) {
+            throw new Error("The article data is not valid.");
+        }
 
         const selectedArticle = articles.find(
             (article) => article.id === articleId

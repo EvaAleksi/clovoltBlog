@@ -241,8 +241,7 @@ fetch("data/articles.json")
         `;
 
         console.error(error);
-    })
-;
+    });
 
 
 
@@ -391,8 +390,7 @@ fetch("data/looks.json")
         `;
 
         console.error(error);
-    })
-;
+    });
 
 
 

@@ -122,7 +122,7 @@
     margin: 65px auto 0;
     padding: 55px 60px;
     border: 1px solid var(--muted-lavender);
-    box-shadow: 0 18px 50px;
+    box-shadow: 0 18px 50px rgba(32, 32, 32, 0.30);
 }
 
 .article-detail-body > p {

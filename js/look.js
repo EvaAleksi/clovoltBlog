@@ -169,15 +169,6 @@ function renderLook(look) {
 
                             Shop the Pieces
                         </h2>
-
-                        <span
-                            class="look-scroll-label"
-                            aria-hidden="true">
-
-                            Scroll
-
-                            <i class="fa-solid fa-arrow-down"></i>
-                        </span>
                     </div>
 
                     <div class="look-products-scroll">

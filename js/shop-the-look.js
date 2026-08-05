@@ -42,6 +42,8 @@ async function loadLooks() {
                 Looks could not be loaded. Please try again later.
             </p>
         `;
+
+        loadMoreContainer.hidden = true;
     }
 }
 
