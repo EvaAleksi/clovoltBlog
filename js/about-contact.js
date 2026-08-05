@@ -135,12 +135,6 @@ if (contactForm) {
         showFormStatus("Sending your message...", "sending");
 
         try {
-            /*
-                This delay represents the future request to a backend or
-                form service. Replace it with fetch() when a real contact
-                endpoint is added to the project.
-            */
-
             await new Promise((resolve) => {
                 window.setTimeout(resolve, 900);
             });

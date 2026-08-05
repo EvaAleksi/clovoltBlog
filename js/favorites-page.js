@@ -422,12 +422,17 @@ looksGrid.addEventListener(
 );
 
 
-window.addEventListener("storage", () => {
+function refreshFavorites() {
     favoriteArticles = getStoredFavoriteArticles();
     favoriteLooks = getStoredFavoriteLooks();
 
     renderFavorites();
-});
+}
 
 
-renderFavorites();
+window.addEventListener("pageshow", refreshFavorites);
+
+window.addEventListener("storage", refreshFavorites);
+
+
+refreshFavorites();

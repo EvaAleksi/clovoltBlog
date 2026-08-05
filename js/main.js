@@ -251,31 +251,69 @@ function setupArticleFavorites(articles) {
 
     let favoriteArticles = getStoredFavoriteArticles();
 
-    favoriteButtons.forEach((button) => {
-        const articleId = Number(button.dataset.articleId);
+    function updateAllFavoriteButtons() {
+        favoriteButtons.forEach((button) => {
+            const articleId = Number(button.dataset.articleId);
 
-        const selectedArticle = articles.find((article) => {
-            return article.id === articleId;
+            const selectedArticle = articles.find((article) => {
+                return article.id === articleId;
+            });
+
+            if (!selectedArticle) {
+                console.error(`Article with ID ${articleId} was not found.`);
+
+                return;
+            }
+
+            const isSaved = isArticleFavorite(
+                favoriteArticles,
+                articleId
+            );
+
+            updateArticleFavoriteButton(
+                button,
+                selectedArticle,
+                isSaved
+            );
         });
+    }
 
-        if (!selectedArticle) {
-            console.error(`Article with ID ${articleId} was not found.`);
+    function refreshArticleFavorites() {
+        favoriteArticles = getStoredFavoriteArticles();
 
-            return;
-        }
+        updateAllFavoriteButtons();
+    }
 
-        let isSaved = isArticleFavorite(favoriteArticles, articleId);
-
-        updateArticleFavoriteButton(button, selectedArticle, isSaved);
-
+    favoriteButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            favoriteArticles = toggleArticleFavorite(favoriteArticles, selectedArticle);
+            const articleId = Number(button.dataset.articleId);
 
-            isSaved = isArticleFavorite(favoriteArticles, articleId);
+            const selectedArticle = articles.find((article) => {
+                return article.id === articleId;
+            });
 
-            updateArticleFavoriteButton(button, selectedArticle, isSaved);
+            if (!selectedArticle) {
+                return;
+            }
+
+            favoriteArticles = toggleArticleFavorite(
+                favoriteArticles,
+                selectedArticle
+            );
+
+            updateAllFavoriteButtons();
         });
     });
+
+    window.addEventListener("pageshow", refreshArticleFavorites);
+
+    window.addEventListener("storage", (event) => {
+        if (event.key === "favoriteArticles") {
+            refreshArticleFavorites();
+        }
+    });
+
+    refreshArticleFavorites();
 }
 
 

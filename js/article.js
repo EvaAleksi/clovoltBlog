@@ -1,4 +1,4 @@
-import {getStoredFavoriteArticles, isArticleFavorite, toggleArticleFavorite, updateArticleFavoriteButton} from "./favorites.js";
+import { getStoredFavoriteArticles, isArticleFavorite, toggleArticleFavorite, updateArticleFavoriteButton } from "./favorites.js";
 
 const articleContent = document.querySelector(".article-detail-content");
 
@@ -28,6 +28,8 @@ async function loadArticle() {
         if (!selectedArticle) {
             throw new Error("The selected article could not be found.");
         }
+
+        document.title = `Clovolt | ${selectedArticle.title}`;
 
         const articleParagraphs = createArticleParagraphs(selectedArticle.content);
 
@@ -121,8 +123,10 @@ async function loadArticle() {
 
 
 function setupArticleFavoriteButtons(article) {
-    const favoriteButtons = articleContent.querySelectorAll("[data-article-favorite]");
-    
+    const favoriteButtons = articleContent.querySelectorAll(
+        "[data-article-favorite]"
+    );
+
     function updateAllFavoriteButtons() {
         const isSaved = isArticleFavorite(favoriteArticles, article.id);
 
@@ -131,14 +135,31 @@ function setupArticleFavoriteButtons(article) {
         });
     }
 
-    updateAllFavoriteButtons();
+    function refreshArticleFavorites() {
+        favoriteArticles = getStoredFavoriteArticles();
+
+        updateAllFavoriteButtons();
+    }
+
+    refreshArticleFavorites();
 
     favoriteButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            favoriteArticles = toggleArticleFavorite(favoriteArticles, article);
+            favoriteArticles = toggleArticleFavorite(
+                favoriteArticles,
+                article
+            );
 
             updateAllFavoriteButtons();
         });
+    });
+
+    window.addEventListener("pageshow", refreshArticleFavorites);
+
+    window.addEventListener("storage", (event) => {
+        if (event.key === "favoriteArticles") {
+            refreshArticleFavorites();
+        }
     });
 }
 

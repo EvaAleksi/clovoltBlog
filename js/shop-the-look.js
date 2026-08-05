@@ -153,17 +153,21 @@ function applyLookFilters() {
 }
 
 
+function selectStyle(selectedButton) {
+    activeStyle = selectedButton.dataset.style;
+
+    styleFilters.forEach((button) => {
+        const isActive = button === selectedButton;
+
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+    });
+}
+
+
 styleFilters.forEach((filterButton) => {
     filterButton.addEventListener("click", () => {
-        activeStyle = filterButton.dataset.style;
-
-        styleFilters.forEach((button) => {
-            button.classList.remove("active");
-            button.setAttribute("aria-pressed", "false");
-        });
-
-        filterButton.classList.add("active");
-        filterButton.setAttribute("aria-pressed", "true");
+        selectStyle(filterButton);
 
         applyLookFilters();
     });
@@ -174,7 +178,7 @@ searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     applyLookFilters();
-})
+});
 
 
 searchInput.addEventListener("input", () => {
@@ -220,11 +224,14 @@ loadMoreButton.addEventListener("click", () => {
     if (isShowingAll) {
         visibleLookCount = initialVisibleLookCount;
     } else {
-        visibleLookCount += looksPerLoad;
+        visibleLookCount = Math.min(
+            visibleLookCount + looksPerLoad,
+            filteredLooks.length
+        );
     }
 
     renderLooks();
-})
+});
 
 
 function refreshLookFavorites() {

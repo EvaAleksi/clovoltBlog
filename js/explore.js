@@ -43,6 +43,8 @@ async function loadArticles() {
                 Articles could not be loaded. Please try again later.
             </p>
         `;
+
+        loadMoreContainer.hidden = true;
     }
 }
 

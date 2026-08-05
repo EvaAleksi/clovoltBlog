@@ -8,6 +8,11 @@
             content="width=device-width, initial-scale=1.0"
         >
 
+        <meta
+            name="description"
+            content="Explore Clovolt fashion stories, styling ideas, wardrobe inspiration and the latest trends."
+        >
+
         <title>Clovolt | Explore</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,11 +156,20 @@
                     <p class="loading-message">Loading articles...</p>
                 </div>
 
-                <p class="no-results-message" id="no-results-message" hidden>
+                <p 
+                    class="no-results-message" 
+                    id="no-results-message" 
+                    role="status"
+                    hidden>
+
                     No articles match your search.
                 </p>
 
-                <div class="load-more-container">
+                <div 
+                    class="load-more-container"
+                    id="load-more-container"
+                    hidden>
+                    
                     <button
                         class="load-more-button"
                         id="load-more-button"
