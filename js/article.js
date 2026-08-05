@@ -59,7 +59,7 @@ async function loadArticle() {
                     </div>
 
                     <button 
-                        class="article-detail-favorite-button"
+                        class="detail-favorite-button"
                         type="button"
                         data-article-favorite
                         aria-label="Add ${selectedArticle.title} to favorites"

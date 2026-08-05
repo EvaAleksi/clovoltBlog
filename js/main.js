@@ -400,7 +400,7 @@ function renderDailyLook(look) {
     const hotspotsHTML = look.products.map((product) => {
         return `
             <span
-                class="look-hotspot"
+                class="featured-look-hotspot"
                 style="top: ${product.hotspotTop}; left: ${product.hotspotLeft};"
                 aria-hidden="true">
 

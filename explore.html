@@ -43,16 +43,16 @@
         <div id="header-container"></div>
 
         <main>
-            <section class="explore-introduction">
+            <section class="page-introduction">
                 <h1>Explore</h1>
 
-                <div class="explore-title-line" aria-hidden="true"></div>
+                <div class="page-title-line" aria-hidden="true"></div>
 
-                <p class="explore-description">
+                <p class="page-description">
                     Discover fashion stories, styling ideas and the latest trends.
                 </p>
 
-                <form class="article-search" id="article-search" role="search">
+                <form class="content-search" id="article-search" role="search">
                     <div class="search-field">
                         <i
                             class="fa-brands fa-searchengin"
@@ -73,16 +73,16 @@
                 </form>
             </section>
 
-            <section class="article-filters" aria-labelledby="category-filter-heading">
+            <section class="content-filters" aria-labelledby="category-filter-heading">
                 <h2 id="category-filter-heading">Browse by Category</h2>
 
                 <div
-                    class="category-filter-list"
+                    class="filter-list"
                     role="group"
                     aria-label="Filter articles by category">
 
                     <button
-                        class="category-filter active"
+                        class="filter-button active"
                         type="button"
                         data-category="all"
                         aria-pressed="true">
@@ -91,7 +91,7 @@
                     </button>
 
                     <button
-                        class="category-filter"
+                        class="filter-button"
                         type="button"
                         data-category="Trends"
                         aria-pressed="false">
@@ -100,7 +100,7 @@
                     </button>
 
                     <button
-                        class="category-filter"
+                        class="filter-button"
                         type="button"
                         data-category="Style Guide"
                         aria-pressed="false">
@@ -109,7 +109,7 @@
                     </button>
 
                     <button
-                        class="category-filter"
+                        class="filter-button"
                         type="button"
                         data-category="Inspiration"
                         aria-pressed="false">
@@ -118,7 +118,7 @@
                     </button>
 
                     <button
-                        class="category-filter"
+                        class="filter-button"
                         type="button"
                         data-category="Wardrobe Essentials"
                         aria-pressed="false">
@@ -127,7 +127,7 @@
                     </button>
 
                     <button
-                        class="category-filter"
+                        class="filter-button"
                         type="button"
                         data-category="Accessories"
                         aria-pressed="false">
@@ -137,8 +137,8 @@
                 </div>
             </section>
 
-            <section class="explore-articles" aria-labelledby="articles-heading">
-                <div class="explore-articles-heading">
+            <section class="results-section" aria-labelledby="articles-heading">
+                <div class="section-heading">
                     <div>
                         <p class="section-label">FASHION STORIES</p>
 
@@ -146,7 +146,7 @@
                     </div>
 
                     <p
-                        class="articles-result-count"
+                        class="result-count"
                         id="articles-result-count"
                         aria-live="polite"
                     ></p>

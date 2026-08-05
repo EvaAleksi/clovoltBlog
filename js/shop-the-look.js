@@ -3,11 +3,11 @@ import { getStoredFavoriteLooks, isLookFavorite, toggleLookFavorite, updateLookF
 const looksGrid = document.querySelector("#shop-look-grid");
 const searchInput = document.querySelector("#shop-search-input");
 const searchForm = document.querySelector("#shop-search-form");
-const styleFilters = document.querySelectorAll(".shop-style-filter");
+const styleFilters = document.querySelectorAll(".filter-button");
 const looksResultCount = document.querySelector("#shop-results-count");
 const noResultMessage = document.querySelector("#shop-no-results");
 const loadMoreButton = document.querySelector("#shop-load-more-button");
-const loadMoreContainer = document.querySelector(".shop-load-more-container");
+const loadMoreContainer = document.querySelector(".load-more-container");
 
 const initialVisibleLookCount = 4;
 const looksPerLoad = 4;

@@ -7,7 +7,7 @@ const loadMoreButton = document.querySelector("#load-more-button");
 const loadMoreContainer = document.querySelector(".load-more-container");
 const searchForm = document.querySelector("#article-search");
 const searchInput = document.querySelector("#article-search-input");
-const categoryFilters = document.querySelectorAll(".category-filter");
+const categoryFilters = document.querySelectorAll(".filter-button");
 
 const initialVisibleArticleCount = 4;
 const articlesPerLoad = 4;

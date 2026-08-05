@@ -119,7 +119,7 @@ function renderLook(look) {
                 </div>
 
                 <button
-                    class="look-save-button"
+                    class="detail-favorite-button"
                     type="button"
                     aria-label="Add ${look.name} to favorites"
                     aria-pressed="false">
@@ -267,7 +267,7 @@ function createProductCard(product) {
 
 function setupFavoriteButton(look) {
     const favoriteButton = lookDetailContent.querySelector(
-        ".look-save-button"
+        ".detail-favorite-button"
     );
 
     updateCurrentLookFavoriteButton();
@@ -291,7 +291,7 @@ function updateCurrentLookFavoriteButton() {
     favoriteLooks = getStoredFavoriteLooks();
 
     const favoriteButton = lookDetailContent.querySelector(
-        ".look-save-button"
+        ".detail-favorite-button"
     );
 
     if (!favoriteButton) {
